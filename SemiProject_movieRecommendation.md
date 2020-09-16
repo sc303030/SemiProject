@@ -10,12 +10,13 @@
 
 ### kaggle 
 
--   **NetFlix Prize Data**
+- **NetFlix Prize Data**
   - `movie_titles.csv`
   - `combined_data_1.txt`
   - `combined_data_2.txt`
   - `combined_data_3.txt`
   - `combined_data_4.txt`
+
 - **The Movies Dataset**
   - `movies_metadata`
   - `ratings`
@@ -738,3 +739,63 @@ def ALS(df_p):
 ```
 
 1. **User**와 같은 영화와 같은 평점인 또 다른 **user**들의 `userId`를 뽑아 그들의 데이터로 피벗테이블을 만든다.
+2. 그 피벗테이블로 `ALS()`를 실행한다. 
+3. 이렇게 `ALS()`를 실행할 수 있으며, 우리 팀이 사용하는 추천 시스템에서는  패키지에 있는  `als`알고리즘을 활용하였다.
+
+```python
+reader = Reader()
+```
+
+
+
+#### 4. 알고리즘 별 cross_validate
+
+> 이번에도 팀원 당 1개씩 알고리즘을 찾고 실행해보기로 하였다. 
+>
+> > 알고리즘 별로 성능을 비교하였다.
+
+```python
+data = Dataset.load_from_df(df[['userId', 'movieId', 'rating']], reader)
+svd = SVD()
+slope = SlopeOne()
+nmf = NMF()
+
+bsl_options = {'method': 'als',
+'n_epochs': 5,
+'reg_u': 12,
+'reg_i': 5
+}
+als = BaselineOnly(bsl_options=bsl_options)
+
+als_result = cross_validate(als, data, measures=['RMSE', 'MAE'],cv=5, verbose=False) 
+slope_result = cross_validate(slope, data, measures=['RMSE', 'MAE'],cv=5, verbose=False) 
+svd_result = cross_validate(svd, data, cv = 5,  measures=['RMSE', 'MAE']) #evaluate 대신 
+nmf_result = cross_validate(nmf, data, measures=['RMSE', 'MAE'],cv=5, verbose=False) 
+```
+
+##### 알고리즘 설명
+
+##### (1) SVD
+
+- 특잇값 분해 (singular value decomposition)라고 한다.
+- https://datascienceschool.net/view-notebook/30055dc68e8f4db0b7f6e4b56a571d52/ 
+  - 여기를 참고하는것이 더 빠르겠다.
+  - 그동안 배워왔던 범위를 넘어섰기에 공부가 더 필요한 부분이다.
+- 간단하게 요약하면 이 피벗테이블처럼 0이 많은 행렬들로 특이값분해를 하여 그 값을 측정한다.
+
+```
+movieId  1       2       3       4       ...  139644  142488  148626  152081
+userId                                   ...                                
+4           NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+15          2.0     2.0     NaN     NaN  ...     3.0     3.5     3.5     3.0
+17          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+19          3.0     3.0     3.0     3.0  ...     NaN     NaN     NaN     NaN
+21          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+```
+
+##### (2) SlpoeOne
+
+
+
+
+
