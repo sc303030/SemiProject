@@ -8,7 +8,13 @@
 
 > 시각화 툴인 power bi를 이용하여 만들었다.
 
+<iframe width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+
+
+
+```html
 <iframe width="600" height="400" src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+```
 
 
 
