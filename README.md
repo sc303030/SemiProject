@@ -8,7 +8,27 @@
 
 > 시각화 툴인 power bi를 이용하여 만들었다.
 
-<iframe style="position: relative; width:1280; height:720;" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+<iframe style="position: relative; width:100%; height:100%;"src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+
+
+
+```html
+{% include 파일명.html id="유튜브동영상url" %}  
+```
+
+{% include powerbi.html id="eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" %}  
+
+
+
+
+
+```html
+{% _include powerbi.html id="eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" %}  
+```
+
+```
+<iframe width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+```
 
 
 
