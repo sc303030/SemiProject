@@ -12,7 +12,7 @@ link  to site :   https://sc303030.github.io/SemiProject/
 
 [![slide](./img/slide07.png)](https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection)
 
-<iframe width="1920" height="690" src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+<iframe width='900' height='400' src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
 ### 설명
 
