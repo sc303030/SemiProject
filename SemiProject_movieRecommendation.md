@@ -774,7 +774,11 @@ svd_result = cross_validate(svd, data, cv = 5,  measures=['RMSE', 'MAE']) #evalu
 nmf_result = cross_validate(nmf, data, measures=['RMSE', 'MAE'],cv=5, verbose=False) 
 ```
 
-##### 알고리즘 설명
+- 위에서 만들어놓은 `df` 를 `Dataset.load_from_df` 로 `Pandas Dataframe` 으로 로딩한다.
+- 각각에 알고리즘을 불러와서 알고리즘 이름에 할당한다.
+- `cross_validate` 로 4개의 알고리즘을 비교하는 변수를 만든다.
+
+##### 알고리즘 분석
 
 ##### (1) SVD
 
@@ -796,7 +800,171 @@ userId                                   ...
 
 ##### (2) SlpoeOne
 
+#### 5. 알고리즘에 따른 RMSE, MAE 비교
 
+```python
+print(slope_result)
+print(svd_result)
+print(nmf_result)
+print(als_result)
+```
 
+```
+{'test_rmse': array([0.87953958, 0.88650737, 0.87635314, 0.88262746, 0.8591474 ]), 'test_mae': array([0.67374703, 0.676835  , 0.67501659, 0.68241775, 0.66127178]), 'fit_time': (1.2840924263000488, 1.3566598892211914, 1.267472743988037, 1.256450891494751, 1.2587716579437256), 'test_time': (4.198052167892456, 4.224506139755249, 4.2405617237091064, 4.183813571929932, 4.232964992523193)}
+{'test_rmse': array([0.85395005, 0.87125244, 0.86363435, 0.86995815, 0.87245622]), 'test_mae': array([0.65569904, 0.67017291, 0.66406423, 0.66888591, 0.67280715]), 'fit_time': (3.0986475944519043, 3.110785484313965, 3.136587381362915, 3.1339731216430664, 3.125138521194458), 'test_time': (0.08710980415344238, 0.17372965812683105, 0.08742976188659668, 0.08999967575073242, 0.0852959156036377)}
+{'test_rmse': array([0.90203039, 0.90187266, 0.89416603, 0.89548174, 0.88277262]), 'test_mae': array([0.6956759 , 0.69435815, 0.69261027, 0.68884812, 0.68265735]), 'fit_time': (3.246049165725708, 3.2357935905456543, 3.2534329891204834, 3.2536609172821045, 3.263439893722534), 'test_time': (0.09050822257995605, 0.07431292533874512, 0.0717926025390625, 0.07917928695678711, 0.07118105888366699)}
+{'test_rmse': array([0.86385979, 0.86430665, 0.84987961, 0.85024716, 0.85725621]), 'test_mae': array([0.66585506, 0.66623912, 0.65413453, 0.65648521, 0.65778627]), 'fit_time': (0.07578492164611816, 0.08110427856445312, 0.0884253978729248, 0.081146240234375, 0.08066868782043457), 'test_time': (0.05817055702209473, 0.05798792839050293, 0.12647652626037598, 0.06371307373046875, 0.057706594467163086)}
+```
 
+- 4개의 알고리즘마다 **`'test_rmse'`** , **`'test_mae'`** , **`'fit_time'`** , **`'test_time'`** 을 비교한다. 5개로 나누었기 때문에 한 알고리즘마다 5개의 값이 나온다.
 
+#### 6. 유저에 따른 개인 영화 추천
+
+> user_id에 따라 영화 추천을 해준다. user_id에 따라 영화가 바뀌는지 알아보자.
+
+```python
+meta['genres'] = meta['genres'].apply(parse_genres)
+```
+
+- `genres` 가 제이슨 형식이기 때문에 장르만 빼오기 위하여 위에서 만든 함수를 실행한다.
+
+```python
+def user_difference(data,usernumber,rating,moviedata,dropdata,reader,svd):
+    df = data
+    df_user = df[(df['userId'] == usernumber) & (df['rating'] == rating)]
+    df_user = df_user.set_index('movieId')
+    df_user = df_user.join(moviedata)['original_title']
+    print(df_user)
+
+    user_release_ratio_list = user_release_ratio(df, usernumber) 
+
+    user_df = moviedata.copy()
+    user_df = user_df[~user_df['movieId'].isin(dropdata)]
+    data1 = Dataset.load_from_df(df[['userId', 'movieId', 'rating']], reader)
+    trainset = data1.build_full_trainset()
+    svd.fit(trainset)
+    user_df['Estimate_Score'] = user_df['movieId'].apply(lambda x: svd.predict(usernumber, x).est)
+    user_df = user_df.sort_values('Estimate_Score', ascending=False)
+    print(user_df.head(10))
+
+    return user_df
+user_df665 = user_difference(df,665,5,meta,drop_movie_list,reader,svd)
+user_df664 = user_difference(df,664,5,meta,drop_movie_list,reader,svd)
+```
+
+1. `df` 를 불러와서 `user_id` 와 `ratings` 에 입력한 값과 같은 영화들만 뽑아서 `movieId` 를 `index` 로 지정하고 `movies_metadata` 에 있는 `movieId` 와 비교하여 `original_title` 을 join해서 제목을 연결해준다. 
+2. 위에서 만들어 놓은 `개봉일 함수` 를 실행한다. 
+3. `movies_metadata` 을 위에서 만들었던 `drop_movie_list`  에 값이 없는 것들을 다시 저장 하고 `svd()` 로 예측값을 `user_df` 에 새로운 컬럼으로 저장해준다. 
+4. `Estimate_Score` 값이 높은 순서대로 10개의 영화를 보여준다.
+
+```python
+print(user_df665)
+```
+
+```
+      movieId            original_title  ... original_language Estimate_Score
+7057    3088.0     My Darling Clementine  ...                en       4.410066
+4020     318.0  The Million Dollar Hotel  ...                en       4.399722
+33913   3578.0                Der Tunnel  ...                de       4.381995
+1595    4995.0             Boogie Nights  ...                en       4.378976
+5295    4993.0               5 Card Stud  ...                en       4.368669
+...        ...                       ...  ...               ...            ...
+11815   1562.0            28 Weeks Later  ...                en       2.088953
+1207     829.0                 Chinatown  ...                en       2.085547
+10643    546.0              Transamerica  ...                en       2.014058
+7718     435.0    The Day After Tomorrow  ...                en       1.837538
+11324   3593.0               Dr. Cyclops  ...                en       1.725484
+```
+
+- 이렇게 영화를 추천해준다. 
+
+```python
+print(user_df664)
+```
+
+```
+       movieId  ... Estimate_Score
+2649     912.0  ...       4.629300
+9758    4235.0  ...       4.610000
+6388     296.0  ...       4.552542
+11466   1247.0  ...       4.533066
+11566   1252.0  ...       4.533060
+...        ...  ...            ...
+11815   1562.0  ...       2.579340
+1100     762.0  ...       2.538839
+11993   2701.0  ...       2.508582
+19332   1556.0  ...       2.413802
+11324   3593.0  ...       2.235794
+```
+
+- 서로 영화 추천이 다른것을 볼 수 있다.
+
+#### 7. 유저의 변화에 따른 영화추천
+
+> 위 **유저영화추천** 이랑 다른점은 **유저가 본 영화를 추가** 를 시켜서 다시 추천해주는 것이다.
+
+```python
+def user_difference(data,usernumber,rating,moviedata,dropdata,reader,svd):
+    df = data
+    df_user = df[(df['userId'] == usernumber) & (df['rating'] == rating)]
+    df_user = df_user.set_index('movieId')
+    df_user = df_user.join(moviedata)['original_title']
+    print(df_user)
+
+    user_release_ratio_list = user_release_ratio(df, usernumber) # 유저의 년도 비율을 가져온다.
+
+    user_df = moviedata.copy()
+    user_df = user_df[~user_df['movieId'].isin(dropdata)]
+    data1 = Dataset.load_from_df(df[['userId', 'movieId', 'rating']], reader)
+    trainset = data1.build_full_trainset()
+    svd.fit(trainset)
+    user_df['Estimate_Score'] = user_df['movieId'].apply(lambda x: svd.predict(usernumber, x).est)
+    # user_df = user_df.drop('movieId', axis = 1)
+    user_df = user_df.sort_values('Estimate_Score', ascending=False)
+    print(user_df.head(10))
+
+    return user_df
+user_1 = user_difference(df,1,5,meta,drop_movie_list,reader,svd)
+df2 = df
+df2.loc[1] = [1,5502,5.0]
+df2.loc[2] = [1,5991.0,5.0]
+add_user_1 = user_difference(df2,1,5,meta,drop_movie_list,reader,svd)
+```
+
+1. 1차로 유저에게 영화를 추천해준다.
+2. `df2.loc[1] = [1,5502,5.0]` 와 `df2.loc[2] = [1,5991.0,5.0]` 를 통해 `User 1번` 에게 영화를 보았다고 하고 정보를 추가해준다. 
+3. 업데이트 된 정보로 다시 영화를 추천해준다.
+
+- **1차 추천**
+
+```
+movieId  ... Estimate_Score
+534      858.0  ...       4.400903
+11566   1252.0  ...       4.390667
+4020     318.0  ...       4.385508
+2649     912.0  ...       4.356599
+6388     296.0  ...       4.335574
+22347   5995.0  ...       4.325523
+2648     913.0  ...       4.324674
+6836     899.0  ...       4.299458
+700      922.0  ...       4.295632
+10089    953.0  ...       4.293387
+```
+
+- **2차 추천**
+
+```
+movieId  ... Estimate_Score
+6141    6016.0  ...       4.809305
+11566   1252.0  ...       4.685912
+278     1945.0  ...       4.653844
+8737    5618.0  ...       4.650391
+2648     913.0  ...       4.621581
+6924     916.0  ...       4.585401
+26720   1260.0  ...       4.574893
+3058     926.0  ...       4.557806
+29151  46578.0  ...       4.554713
+10089    953.0  ...       4.542777
+```
+
+- 다른 영화를 추천해주는 것을 볼 수 있다.
