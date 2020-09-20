@@ -593,7 +593,7 @@ https://image.tmdb.org/t/p/original/sqelBKOEdYruo497Jx6SAC3jBMY.jpg
 
 - 포스터 주소가 `user_df665` 에 새로운 컬럼으로 저장된다.
 
-![poster01](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster01.jpg)
+![poster01](./img/poster01.jpg)
 
 - 주소가 있는 영화는 정상적으로 포스터가 출력되고 주소가 없는 영화는 포스터가 표시되지 않는다.
 
@@ -621,7 +621,7 @@ https://image.tmdb.org/t/p/original/5QHW2USODuDfUahBX1qoOsR97Cr.jpg
 
 - 포스터 주소가 `user_df664` 에 새로운 컬럼으로 저장된다.
 
-![poster02](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster02.jpg)
+![poster02](./img/poster02.jpg)
 
 ```python
 user_1_url = user_1.head(12)
@@ -645,7 +645,7 @@ https://image.tmdb.org/t/p/original/TMlSiPuj9LymfwPiKFiRRnhkRq.jpg
 https://image.tmdb.org/t/p/original/65iVwc0t5eTDhQJsddsR14uBuGr.jpg
 ```
 
-![poster03](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster03.jpg)
+![poster03](./img/poster03.jpg)
 
 ```python
 add_user_1_10 = add_user_1.head(12)
@@ -669,7 +669,7 @@ https://image.tmdb.org/t/p/original/h6aVbUsiJB3Le1xrhyZXsXZOI3h.jpg
 https://image.tmdb.org/t/p/original/jVititCfwaPXWDAZkjWkgmpcAkO.jpg
 ```
 
-![poster04](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster04.jpg)
+![poster04](./img/poster04.jpg)
 
 ```python
 user_df_sum_relase1 = user_df_sum_relase.head(12)
@@ -702,9 +702,9 @@ https://image.tmdb.org/t/p/original/TMlSiPuj9LymfwPiKFiRRnhkRq.jpg
 https://image.tmdb.org/t/p/original/frPAFd718R042GbMVWelLrk1h0D.jpg
 ```
 
-![poster05](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster05.jpg)
+![poster05](./img/poster05.jpg)
 
-![poster06](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster06.jpg)
+![poster06](./img/poster06.jpg)
 
 ```
 https://image.tmdb.org/t/p/original/6EODLN11HTX4l2cmakAhWIoJLF.jpg
@@ -725,7 +725,7 @@ https://image.tmdb.org/t/p/original/2149T34sq7akP1Mdm1LC7FJuImM.jpg
 https://image.tmdb.org/t/p/original/6WZFYXMFFwNS0AmTd3deCLXjt10.jpg
 ```
 
-![poster07](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster07.jpg)
+![poster07](./img/poster07.jpg)
 
 ```
 https://image.tmdb.org/t/p/original/6EODLN11HTX4l2cmakAhWIoJLF.jpg
@@ -742,7 +742,7 @@ https://image.tmdb.org/t/p/original/paI9Tmqm2cZG6xy4Tnjw3Ydjuw5.jpg
 https://image.tmdb.org/t/p/original/8GADjoCjzhu4a24f5KXFVqOjjsY.jpg
 ```
 
-![poster08](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster08.jpg)
+![poster08](./img/poster08.jpg)
 
 ```
 https://image.tmdb.org/t/p/original/1nd4SsytVc96hy92g8NNVPD3mzf.jpg
@@ -759,7 +759,7 @@ https://image.tmdb.org/t/p/original/uHkmbxb70IQhV4q94MiBe9dqVqv.jpg
 https://image.tmdb.org/t/p/original/p9ue17zGuEZtMhAkdhUI1KNtEb1.jpg
 ```
 
-![poster09](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster09.jpg)
+![poster09](./img/poster09.jpg)
 
 ```python
 als_recomend1 = als_recomend.head(12)
@@ -792,7 +792,7 @@ https://image.tmdb.org/t/p/original/6WZFYXMFFwNS0AmTd3deCLXjt10.jpg
 https://image.tmdb.org/t/p/original/V4kp32aLBx5Axj1FiIvE9U0CkR.jpg
 ```
 
-![poster10](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster10.jpg)
+![poster10](./img/poster10.jpg)
 
 ```
 https://image.tmdb.org/t/p/original/ow1esWlXoRPijAvR6GZQbv0uv9r.jpg
@@ -809,9 +809,9 @@ https://image.tmdb.org/t/p/original/w0y7mNCiiHdyo05KlguqQS28Frn.jpg
 https://image.tmdb.org/t/p/original/3bdfN2gosYSxpHBAXPkAhxkUJFr.jpg
 ```
 
-![poster11](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster11.jpg)
+![poster11](./img/poster11.jpg)
 
-![poster12](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster12.jpg)
+![poster12](./img/poster12.jpg)
 
 ```
 https://image.tmdb.org/t/p/original/2GDdW84XSX3BYMJ9tmnFkZOGJyB.jpg
@@ -828,7 +828,7 @@ https://image.tmdb.org/t/p/original/c4wrCYEgEtLXxoyEZf4pBl6XD4V.jpg
 https://image.tmdb.org/t/p/original/6WZFYXMFFwNS0AmTd3deCLXjt10.jpg
 ```
 
-![poster13](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster13.jpg)
+![poster13](./img/poster13.jpg)
 
 ![poster14](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster14.jpg)
 
@@ -847,9 +847,9 @@ https://image.tmdb.org/t/p/original/p9ue17zGuEZtMhAkdhUI1KNtEb1.jpg
 https://image.tmdb.org/t/p/original/toaY9CoMAy37QNv8HbbUqWS4X1Q.jpg
 ```
 
-![poster15](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster15.jpg)
+![poster15](./img/poster15.jpg)
 
-![poster16](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster16.jpg)
+![poster16](./img/poster16.jpg)
 
 #### 이렇게 포스터가 정상적으로 나오는 것을 확인하였다. 이제 데이터를 저장하고 Power Bi로 시각화를 한다.
 
