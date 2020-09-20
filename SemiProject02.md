@@ -36,7 +36,7 @@ nmf_result = cross_validate(nmf, data, measures=['RMSE', 'MAE'],cv=5, verbose=Fa
 - 0이 많은 행렬을 이용하여 예측값을 구한다.
   - SVD를 통해 차원을 축소시킨다.
 
-[자료 참고 사이트]([https://medium.com/@omicro03/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC-nlp-7%EC%9D%BC%EC%B0%A8-%ED%86%A0%ED%94%BD-%EB%AA%A8%EB%8D%B8%EB%A7%81-d45a988ecc5b](https://medium.com/@omicro03/자연어처리-nlp-7일차-토픽-모델링-d45a988ecc5b))
+[자료 참고 사이트](https://medium.com/@omicro03/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC-nlp-7%EC%9D%BC%EC%B0%A8-%ED%86%A0%ED%94%BD-%EB%AA%A8%EB%8D%B8%EB%A7%81-d45a988ecc5b)
 
 ![svd01](./img/svd01.png)
 
