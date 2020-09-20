@@ -47,7 +47,32 @@ userId                                   ...
 21          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
 ```
 
-##### (2) SlpoeOne
+##### (2) [SlpoeOne](https://en.wikipedia.org/wiki/Slope_One)
+
+- 새로운 아이템과 다른 아이템의 사용자 선호의 평균적인 값의 차이에 기반해서 새로운 선호를 추정하는 것이다. (http://wiki.gurubee.net/pages/viewpage.action?pageId=28118045)
+
+![slope-one01](./img/slope-one01.JPG)
+
+- 그림과 같이 A사용자에게 나우 유 씨 미 : 마술사긴단의 선호도를 구하기 위해 slope-one을 적용하면 다음과 같다.
+  - 모든 이용자의 영화 평점에서 **나우 유 씨 미 : 마술사기단** 이 **메이즈 러너** 의 평점보다 **평균 1.0  ** 높다. 
+  -  **나우 유 씨 미 : 마술사기단** 과 **헝거게임** 의 평점 평균은 같다.
+  - A사용자의 **메이즈 러너** 평점에 **평균 차이 1.0** 을 더해주고, **헝거에임** 평점에 **평균차이 0** 을 더하여 선호도를 구한다.
+  - 2개의 선호도를 더해 2로 나누면 **A사용자의**  **나우 유 씨 미 : 마술사기단** 의 예상 선호도를 구할 수 있다.
+    - 이 값이 **SLOPE-ONE** 이 추천해주는 값이다.
+
+##### (3) ALS
+
+-  Alaternating Least Squares의 약자로 교대 최소 제곱법이라고도 한다.
+
+![ALS01](./img/ALS01.png)
+
+- 두 행렬을 한 번에 최적하기 어렵기 때문에 `Movie_Id`를 고정 시킨 후 `User_Id`를 학습시키고,  `User_Id`를 고정시키고 `Movie_Id`를 학습시킨다.
+  - 사용자가 정한 개수만큼 돌려서 최적화 값을 구한다.
+
+- [ALS 참고 사이트01](https://www.slideshare.net/madvirus/als-ws)
+- [ALS 참고 사이트 02](https://yeomko.tistory.com/4)
+
+##### (4) NMF
 
 
 
