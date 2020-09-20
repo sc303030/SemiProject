@@ -51,7 +51,7 @@ userId                                   ...
 
 - 새로운 아이템과 다른 아이템의 사용자 선호의 평균적인 값의 차이에 기반해서 새로운 선호를 추정하는 것이다. (http://wiki.gurubee.net/pages/viewpage.action?pageId=28118045)
 
-![slope-one01](./img/slope-one01.JPG)
+![slope-one01](./img/slope-one01.jpg)
 
 - 그림과 같이 A사용자에게 나우 유 씨 미 : 마술사긴단의 선호도를 구하기 위해 slope-one을 적용하면 다음과 같다.
   - 모든 이용자의 영화 평점에서 **나우 유 씨 미 : 마술사기단** 이 **메이즈 러너** 의 평점보다 **평균 1.0  ** 높다. 
