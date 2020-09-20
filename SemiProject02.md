@@ -32,20 +32,16 @@ nmf_result = cross_validate(nmf, data, measures=['RMSE', 'MAE'],cv=5, verbose=Fa
 ##### (1) SVD
 
 - 특잇값 분해 (singular value decomposition)라고 한다.
-- https://datascienceschool.net/view-notebook/30055dc68e8f4db0b7f6e4b56a571d52/ 
-  - 여기를 참고하는것이 더 빠르겠다.
-  - 그동안 배워왔던 범위를 넘어섰기에 공부가 더 필요한 부분이다.
-- 간단하게 요약하면 이 피벗테이블처럼 0이 많은 행렬들로 특이값분해를 하여 그 값을 측정한다.
+- [SVD참고 사이트](https://datascienceschool.net/view-notebook/30055dc68e8f4db0b7f6e4b56a571d52/ )
+- 0이 많은 행렬을 이용하여 예측값을 구한다.
+  - SVD를 통해 차원을 축소시킨다.
 
-```
-movieId  1       2       3       4       ...  139644  142488  148626  152081
-userId                                   ...                                
-4           NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
-15          2.0     2.0     NaN     NaN  ...     3.0     3.5     3.5     3.0
-17          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
-19          3.0     3.0     3.0     3.0  ...     NaN     NaN     NaN     NaN
-21          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
-```
+[자료 참고 사이트]([https://medium.com/@omicro03/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC-nlp-7%EC%9D%BC%EC%B0%A8-%ED%86%A0%ED%94%BD-%EB%AA%A8%EB%8D%B8%EB%A7%81-d45a988ecc5b](https://medium.com/@omicro03/자연어처리-nlp-7일차-토픽-모델링-d45a988ecc5b))
+
+![svd01](./img/svd01.png)
+
+- 자료를 참고하여 만들었기 때문에 평점이 1과 2로 구성되어 있다.
+- 평점을 **U, S, VT** 로 나누어서 **FULL SVD** 를 만들고 **절단된  SVD** 를 만들어서 최종 예측값을 구한다.
 
 ##### (2) [SlpoeOne](https://en.wikipedia.org/wiki/Slope_One)
 
@@ -310,7 +306,7 @@ vote_data, vote_meta = user_vote_ratio()
 
 - vote 가중치를 주기위해 먼저 데이터를 다시 정비한다.
 
-```
+```python
 def variable_weight2(data,usernumber,rating,moviedata):
     df = data.copy()
     df_user = df[(df['userId'] == usernumber) & (df['rating'] == rating)]
