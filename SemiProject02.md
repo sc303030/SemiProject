@@ -830,7 +830,7 @@ https://image.tmdb.org/t/p/original/6WZFYXMFFwNS0AmTd3deCLXjt10.jpg
 
 ![poster13](./img/poster13.jpg)
 
-![poster14](C:\Users\gh\SemiProject\SemiProject_movieRecommendation03.assets\poster14.jpg)
+![poster14](./img/poster14.jpg)
 
 ```
 https://image.tmdb.org/t/p/original/kMD7UJdvMxZL4UT3jAyZDpisJ9F.jpg
