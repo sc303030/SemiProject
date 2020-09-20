@@ -24,7 +24,11 @@
 
 #### 추천 방법
 
-- 우리 팀이 원한 최종 추천 방법은 **하이브리드(Hybird) 추천 시스템**이었다.
+- **추천 시스템** 이란?
+  - 사용자의 취향이나 선호의 기반으로 정보를 선별하여 사용자에게 적합한 특정 항목을 선택(information filtering)하여 제공하는 시스템을 일컫는다. (정인용, 양새동, 정회경, “A Study on Movies Recommendation System of Hybrid Filtering-Based”, *Journal of the Korea Institute of Information and Communication* Engineering  Vol. 19, No. 1, January 2015, pp. 113-118)
+  - 추천 시스템에는 협업 필터링, 콘텐츠 기반 필터링, 그리고 Hybrid 필터링이 있다.
+
+- 우리 팀이 원한 최종 추천 방법은 **하이브리드(Hybird) 추천 시스템(Hybrid 필터링)** 이다.
 
 ##### 하이브리드 추천 시스템이란?
 
