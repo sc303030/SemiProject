@@ -70,7 +70,14 @@ nmf_result = cross_validate(nmf, data, measures=['RMSE', 'MAE'],cv=5, verbose=Fa
 
 ##### (4) NMF
 
+- 비음수 행렬 분해(Non-negative Matrix Factorization) 라고도 한다.
+  -  음수가 포함되지 않은, 전체 원소가 양수인 행렬 V를 음수를 포함하지 않는 행렬 W와 H의 곱으로 분해하는 알고리즘이다. (https://kolikim.tistory.com/28)
+  - 독립 특성 추출 기법중 하나 [자료 참고 사이트](https://www.slideshare.net/madvirus/pca-svd)
 
+![nmf01](./img/nmf01.png)
+
+- 원본 행렬과 유사할 때 까지 인수분해 알고리즘을 반복한다.
+  - `WxH`  값이 나중에 최종 예측치가 된다.
 
 #### 5. 알고리즘에 따른 RMSE, MAE 비교
 
