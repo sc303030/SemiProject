@@ -8,9 +8,9 @@
 
 > 시각화 툴인 power bi를 이용하여 만들었다.
 
-link  to site :   https://sc303030.github.io/SemiProject/
+link  to site :   https://sc303030.github.io/SemiProject_Movie_recommendations/
 
-[![slide](./img/slide07.png)](https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection)
+[![slide](./img/wan01.gif)](https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection)
 
 <iframe width='900' height='400' src="https://app.powerbi.com/view?r=eyJrIjoiMDFmNjk5YTgtYmYzMy00YWM3LTgzNjctNDRhNjBjNWY0ZDdhIiwidCI6IjcxNzYzNWIxLTFjNzUtNDViOC05NmEzLWQzYzM0MTk5MWUwNyJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
@@ -18,27 +18,27 @@ link  to site :   https://sc303030.github.io/SemiProject/
 
 #### 1페이지 
 
-![1page](./img/slide01.JPG)
+![1page](./img/1page.gif)
 
 - 해당 유저에게 10개의 영화를 추천한다.
 - 유저가 도넛 차트에 있는 영화를 선택하면 오른쪽 포스터 모음에서 해당 영화의 포스터가 나타난다.
 
 #### 2페이지
 
-![2page](./img/slide02.JPG)
+![2page](./img/2page.gif)
 
 - 1번 유저에게 기본적인 영화를 추천한다.
 - 후에 1번 유저가 영화를 더 관람하였다면 그에 맞춰서 다시 추천해준다.
 
 #### 3페이지
 
-![3page](./img/slide03.JPG)
+![3page](./img/3page.gif)
 
 - 가중치를 주지 않은 `SVD()`알고리즘만 사용한 개인화 추천이다.
 
 #### 4페이지
 
-![4page](./img/slide04.JPG)
+![4page](./img/4page.gif)
 
 - 4개의 변수 가중치를 준 영화 추천을 비교한다.
 - 도넛 차트에서 영화 하나를 클릭해보면 그 영화가 다른 변수 가중치에서 몇 번째로 추천해주었는지 알 수 있다.
@@ -47,7 +47,7 @@ link  to site :   https://sc303030.github.io/SemiProject/
 
 #### 5페이지
 
-![5page](./img/slide05.JPG)
+![5page](./img/5page.gif)
 
 - 4개의 알고리즘 영화 추천을 비교한다.
 - 3페이지와 마찬가지로 도넛 차트에서 한 개의 영화를 클릭해보면 그 영화가 다른 알고리즘에서 몇 번째로 추천해주었는지 알 수 있다.
